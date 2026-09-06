@@ -1,0 +1,213 @@
+{
+  "entities": {
+    "Account": {
+      "title": "Account",
+      "description": "Trading account information",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "accountName": { "type": "string" },
+        "broker": { "type": "string", "enum": ["Thrivers", "Fundpips"] },
+        "brokerLogo": { "type": "string" },
+        "personName": { "type": "string" },
+        "owner": { "type": "string", "enum": ["Ismail", "Hamza"] },
+        "device": { "type": "string" },
+        "phone": { "type": "number" },
+        "accountNumber": { "type": "string" },
+        "accountBalance": { "type": "number" },
+        "equity": { "type": "number" },
+        "dayPnL": { "type": "number" },
+        "dayPnLPercent": { "type": "number" },
+        "phase": { "type": "string" },
+        "status": { "type": "string" },
+        "lastSync": { "type": "string" },
+        "serverNode": { "type": "string" },
+        "openPositionsCount": { "type": "number" },
+        "leverage": { "type": "string" },
+        "hedgeStatusOverride": { "type": "string" }
+      },
+      "required": ["id", "accountName", "broker", "personName", "accountNumber", "accountBalance", "equity"]
+    },
+    "Trader": {
+      "title": "Trader",
+      "description": "Trader identity and phone slot credentials",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "phone": { "type": "string" },
+        "deviceName": { "type": "string" },
+        "assignedPhoneSlot": { "type": "number" },
+        "owner": { "type": "string", "enum": ["Ismail", "Hamza"] },
+        "email": { "type": "string" },
+        "emailPassword": { "type": "string" },
+        "reddotPayId": { "type": "string" },
+        "reddotPayPassword": { "type": "string" },
+        "thriversId": { "type": "string" },
+        "thriversPassword": { "type": "string" },
+        "fundpipsId": { "type": "string" },
+        "fundpipsPassword": { "type": "string" },
+        "notes": { "type": "string" },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["id", "name", "deviceName", "assignedPhoneSlot", "owner"]
+    },
+    "Expense": {
+      "title": "Expense",
+      "description": "Financial expense log",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "category": { "type": "string" },
+        "title": { "type": "string" },
+        "description": { "type": "string" },
+        "amount": { "type": "number" },
+        "currency": { "type": "string" },
+        "exchangeRateToUsd": { "type": "number" },
+        "paidBy": { "type": "string" },
+        "date": { "type": "string" },
+        "timeAgo": { "type": "string" },
+        "broker": { "type": "string" },
+        "accountId": { "type": "string" },
+        "accountName": { "type": "string" },
+        "accountPhase": { "type": "string" },
+        "accountSize": { "type": "string" },
+        "traderId": { "type": "string" },
+        "traderName": { "type": "string" },
+        "phoneSlot": { "type": "number" },
+        "renewedOn": { "type": "string" },
+        "nextRenewalDate": { "type": "string" },
+        "monthPeriod": { "type": "string" },
+        "paymentMethod": { "type": "string" },
+        "transactionRef": { "type": "string" },
+        "notes": { "type": "string" },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["id", "category", "title", "amount", "currency", "paidBy", "date"]
+    },
+    "PlannedHedge": {
+      "title": "PlannedHedge",
+      "description": "Planned hedge trade pairing",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "instrument": { "type": "string" },
+        "account1Id": { "type": "string" },
+        "account2Id": { "type": "string" },
+        "plannedLotSize": { "type": "number" },
+        "notes": { "type": "string" },
+        "createdAt": { "type": "string" },
+        "targetDate": { "type": "string" },
+        "scheduledDate": { "type": "string" }
+      },
+      "required": ["id", "instrument", "account1Id", "account2Id"]
+    },
+    "ActiveHedge": {
+      "title": "ActiveHedge",
+      "description": "Live active hedge position pair",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "instrument": { "type": "string" },
+        "account1Id": { "type": "string" },
+        "account1Side": { "type": "string" },
+        "account1LotSize": { "type": "number" },
+        "account1StartBalance": { "type": "number" },
+        "account2Id": { "type": "string" },
+        "account2Side": { "type": "string" },
+        "account2LotSize": { "type": "number" },
+        "account2StartBalance": { "type": "number" },
+        "startedAt": { "type": "string" },
+        "startedTimestamp": { "type": "number" },
+        "notes": { "type": "string" }
+      },
+      "required": ["id", "instrument", "account1Id", "account2Id", "startedAt"]
+    },
+    "ClosedHedge": {
+      "title": "ClosedHedge",
+      "description": "Historical closed hedge trade pair",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "instrument": { "type": "string" },
+        "account1Id": { "type": "string" },
+        "account1Name": { "type": "string" },
+        "account1Broker": { "type": "string" },
+        "account1Phone": { "type": "number" },
+        "account1Side": { "type": "string" },
+        "account1LotSize": { "type": "number" },
+        "account1StartBalance": { "type": "number" },
+        "account1CloseBalance": { "type": "number" },
+        "account1PnL": { "type": "number" },
+        "account2Id": { "type": "string" },
+        "account2Name": { "type": "string" },
+        "account2Broker": { "type": "string" },
+        "account2Phone": { "type": "number" },
+        "account2Side": { "type": "string" },
+        "account2LotSize": { "type": "number" },
+        "account2StartBalance": { "type": "number" },
+        "account2CloseBalance": { "type": "number" },
+        "account2PnL": { "type": "number" },
+        "netPnL": { "type": "number" },
+        "startedAt": { "type": "string" },
+        "closedAt": { "type": "string" },
+        "durationText": { "type": "string" },
+        "notes": { "type": "string" }
+      },
+      "required": ["id", "instrument", "account1Id", "account2Id", "netPnL", "closedAt"]
+    },
+    "Log": {
+      "title": "Log",
+      "description": "Audit and activity log entry",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "timestamp": { "type": "string" },
+        "timeAgo": { "type": "string" },
+        "actionType": { "type": "string" },
+        "title": { "type": "string" },
+        "traderName": { "type": "string" },
+        "broker": { "type": "string" },
+        "brokerLogo": { "type": "string" },
+        "summary": { "type": "string" },
+        "accountNumber": { "type": "string" },
+        "changes": { "type": "array" }
+      },
+      "required": ["id", "timestamp", "actionType", "title"]
+    }
+  },
+  "firestore": {
+    "/accounts/{accountId}": {
+      "schema": "Account",
+      "description": "Trading accounts"
+    },
+    "/traders/{traderId}": {
+      "schema": "Trader",
+      "description": "Traders and credential records"
+    },
+    "/expenses/{expenseId}": {
+      "schema": "Expense",
+      "description": "Expense records"
+    },
+    "/plannedHedges/{plannedHedgeId}": {
+      "schema": "PlannedHedge",
+      "description": "Planned hedge setups"
+    },
+    "/activeHedges/{activeHedgeId}": {
+      "schema": "ActiveHedge",
+      "description": "Active hedge pairs"
+    },
+    "/closedHedges/{closedHedgeId}": {
+      "schema": "ClosedHedge",
+      "description": "Closed hedge records"
+    },
+    "/logs/{logId}": {
+      "schema": "Log",
+      "description": "Audit and activity logs"
+    },
+    "/meta/{metaId}": {
+      "schema": "object",
+      "description": "App metadata and last updated state"
+    }
+  }
+}

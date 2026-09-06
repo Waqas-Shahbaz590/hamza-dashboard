@@ -1,0 +1,71 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-inter: 'Inter', system-ui, -apple-system, sans-serif;
+    --font-jetbrains: 'JetBrains Mono', monospace;
+  }
+
+  html, body, #root {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+  }
+
+  body {
+    font-family: var(--font-inter);
+    background-color: #F1F3F5;
+    color: #1A1C1E;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+.font-tabular {
+  font-family: var(--font-jetbrains);
+  font-feature-settings: 'tnum' on, 'lnum' on;
+}
+
+.density-card {
+  background: #FFFFFF;
+  border: 1px solid #DEE2E6;
+  border-radius: 4px;
+}
+
+.data-table-row:nth-child(even) {
+  background-color: #FAFAFA;
+}
+
+.data-table-row:hover {
+  background-color: #F1F3F5;
+}
+
+/* Custom High Density Sleek Scrollbar */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+::-webkit-scrollbar-track {
+  background: #F1F3F5;
+}
+::-webkit-scrollbar-thumb {
+  background: #CED4DA;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #ADB5BD;
+}
+
+/* Disable native Edge / browser password reveal eye icon duplicate */
+input::-ms-reveal,
+input::-ms-clear {
+  display: none !important;
+}
+
+.material-symbols-outlined {
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 20;
+}
+

@@ -1,0 +1,8 @@
+{
+  "name": "Remix Remix Trading Circle",
+  "description": "Multi-Broker Sync and online trading group dashboard for managing synchronized accounts, equity tracking, and real-time execution analytics across financial institutions.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

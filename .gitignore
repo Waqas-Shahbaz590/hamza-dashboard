@@ -1,0 +1,27 @@
+# Dependency directories (Bun/Node)
+node_modules/
+.bun/
+
+# Build and output directories
+dist/
+build/
+
+# Environment variables & local secrets (CRITICAL)
+.env
+.env.local
+.env.*.local
+!.env.example
+
+# Firebase configuration & logs
+.firebase/
+firebase-debug.log
+ui-debug.log
+firestore-debug.log
+
+# IDEs and Code Editors
+.vscode/
+.idea/
+
+# Windows system files
+Thumbs.db
+Desktop.ini
